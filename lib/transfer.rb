@@ -25,9 +25,9 @@ class Transfer
     @@all << self
   end
 
-  def reverse_transfer(id)
-    id.sender.balance += id.amount
-    id.receiver.balance -= id.amount
+  def reverse_transfer
+    sender.balance += amount
+    receiver.balance -= amount
   end
 
   def bad_transfer
