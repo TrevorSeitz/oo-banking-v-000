@@ -25,4 +25,8 @@ class Transfer
     @@all << self
   end
 
+  def bad_transfer
+    "Transaction rejected. Please check your account balance."
+  end
+
 end
