@@ -25,7 +25,6 @@ class Transfer
       @status = "rejected"
       "Transaction rejected. Please check your account balance."
     end
-    # @@all << self
   end
 
   def reverse_transfer
@@ -35,9 +34,5 @@ class Transfer
     end
     @status = "reversed"
   end
-
-  # def bad_transfer
-  #
-  # end
 
 end
