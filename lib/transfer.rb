@@ -17,11 +17,14 @@ class Transfer
   end
 
   def execute_transaction
-    unless @@all.include?(self)
+    if self.valid? and self.status == "pending"
       sender.balance -= amount
       receiver.balance += amount
+      @status = "complete"
+    else
+      self.status = "rejected"
+      "Transaction rejected. Please check your account balance."
     end
-    @status = "complete"
     @@all << self
   end
 
@@ -33,8 +36,8 @@ class Transfer
     @status = "reversed"
   end
 
-  def bad_transfer
-    "Transaction rejected. Please check your account balance."
-  end
+  # def bad_transfer
+  #
+  # end
 
 end
