@@ -20,6 +20,7 @@ class Transfer
     unless @@all.include?(self)
     sender.balance -= amount
     receiver.balance += amount
+  end
     @@all << self
   end
 
