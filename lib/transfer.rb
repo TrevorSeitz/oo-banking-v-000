@@ -21,6 +21,7 @@ class Transfer
       sender.balance -= amount
       receiver.balance += amount
     end
+    @status = "complete"
     @@all << self
   end
 
