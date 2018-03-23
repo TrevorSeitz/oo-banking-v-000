@@ -17,12 +17,16 @@ class Transfer
   end
 
   def execute_transaction
-    unless @@all.include?(self) 
+    unless @@all.include?(self)
       sender.balance -= amount
       receiver.balance += amount
     end
     @status = "complete"
     @@all << self
+  end
+
+  def reverse_transfer(id)
+    id.sender.balance += id.amount
   end
 
   def bad_transfer
